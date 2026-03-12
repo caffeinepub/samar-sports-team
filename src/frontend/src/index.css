@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 0 0;
+    --foreground: 98 0 0;
+    --card: 14 0.01 264;
+    --card-foreground: 98 0 0;
+    --popover: 12 0.01 264;
+    --popover-foreground: 98 0 0;
+    --primary: 65 0.23 38;
+    --primary-foreground: 10 0 0;
+    --secondary: 20 0.02 264;
+    --secondary-foreground: 85 0 0;
+    --muted: 18 0.01 264;
+    --muted-foreground: 60 0.02 264;
+    --accent: 55 0.22 26;
+    --accent-foreground: 10 0 0;
+    --destructive: 55 0.22 26;
+    --destructive-foreground: 10 0 0;
+    --border: 25 0.04 264;
+    --input: 20 0.03 264;
+    --ring: 65 0.23 38;
+    --radius: 0.25rem;
+    --chart-1: 65 0.23 38;
+    --chart-2: 60 0.2 26;
+    --chart-3: 75 0.15 80;
+    --chart-4: 50 0.1 264;
+    --chart-5: 45 0.08 180;
+    --sidebar: 12 0.01 264;
+    --sidebar-foreground: 85 0 0;
+    --sidebar-primary: 65 0.23 38;
+    --sidebar-primary-foreground: 10 0 0;
+    --sidebar-accent: 20 0.02 264;
+    --sidebar-accent-foreground: 85 0 0;
+    --sidebar-border: 25 0.04 264;
+    --sidebar-ring: 65 0.23 38;
+
+    /* Custom brand tokens */
+    --neon-orange: #ff4500;
+    --neon-red: #ff0022;
+    --silver: #c0c0c0;
+    --deep-black: #050505;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: var(--deep-black);
+    font-family: "Barlow", sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Neon glow effects */
+.neon-text-orange {
+  color: var(--neon-orange);
+  text-shadow: 0 0 7px var(--neon-orange), 0 0 20px var(--neon-orange), 0 0 40px
+    var(--neon-orange), 0 0 80px rgba(255, 69, 0, 0.4);
+}
+
+.neon-text-red {
+  color: var(--neon-red);
+  text-shadow: 0 0 7px var(--neon-red), 0 0 20px var(--neon-red), 0 0 40px
+    var(--neon-red);
+}
+
+.neon-border-orange {
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 8px var(--neon-orange), 0 0 20px rgba(255, 69, 0, 0.3), inset
+    0 0 8px rgba(255, 69, 0, 0.1);
+}
+
+.neon-underline {
+  position: relative;
+}
+
+.neon-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--neon-orange);
+  box-shadow: 0 0 10px var(--neon-orange), 0 0 30px rgba(255, 69, 0, 0.6);
+}
+
+.font-bebas {
+  font-family: "Bebas Neue", "Barlow Condensed", cursive;
+}
+
+.font-barlow-condensed {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card:hover {
+  background: rgba(255, 69, 0, 0.06);
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.2), 0 0 60px rgba(255, 69, 0, 0.08);
+}
+
+.radial-glow-orange {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 69, 0, 0.12) 0%,
+    transparent 70%
+  );
+}
+
+.speed-gradient {
+  background: linear-gradient(135deg, #050505 0%, #0f0500 50%, #050505 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-orange);
+  border-radius: 2px;
+}
+
+/* Grid pattern */
+.grid-bg {
+  background-image: linear-gradient(rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 69, 0, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--neon-orange), 0 0 20px rgba(255, 69, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--neon-orange), 0 0 50px rgba(255, 69, 0, 0.6), 0 0
+      80px rgba(255, 69, 0, 0.2);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
